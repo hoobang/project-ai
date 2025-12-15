@@ -1,0 +1,21 @@
+# Node / Vite
+node_modules/
+dist/
+*.log
+
+# Frontend caches
+.cache/
+.temp/
+
+# Java / Maven
+wechat-backend/target/
+**/target/
+*.iml
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
