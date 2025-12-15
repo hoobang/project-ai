@@ -14,6 +14,16 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * 好友关系服务实现。
+ * <p>
+ * 逻辑说明：
+ * - 防止向自己发送请求与重复的好友关系；
+ * - 接受/拒绝流程仅允许目标用户处理待审批的请求；
+ * - 删除好友将解除双方之间的关系；
+ * - 查询好友时合并双向关系，并在无好友时返回所有其他用户以便界面体验。
+ * </p>
+ */
 @Service
 @Transactional
 public class FriendshipServiceImpl implements FriendshipService {

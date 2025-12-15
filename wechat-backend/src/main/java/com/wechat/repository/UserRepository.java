@@ -9,6 +9,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 用户仓储接口。
+ * <p>
+ * 提供按用户名、邮箱、手机号的查询与存在性判断；
+ * 支持基于关键字的模糊搜索（用户名/昵称/邮箱/手机号）。
+ * </p>
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 

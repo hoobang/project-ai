@@ -19,6 +19,17 @@ import java.util.Random;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * 群组服务实现。
+ * <p>
+ * 逻辑说明：
+ * - 创建群时自动添加创建者为 OWNER 并生成邀请码；
+ * - 加入群需校验公开性、邀请码与成员数量上限；
+ * - 角色变更与成员移除严格校验操作者权限；
+ * - 禁言逻辑依据截止时间与角色限制；
+ * - 支持生成随机邀请码与群消息持久化。
+ * </p>
+ */
 @Service
 @Transactional
 public class GroupServiceImpl implements GroupService {

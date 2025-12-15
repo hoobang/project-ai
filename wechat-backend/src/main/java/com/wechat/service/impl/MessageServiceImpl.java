@@ -12,6 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * 私聊消息服务实现。
+ * <p>
+ * 逻辑说明：
+ * - 发送消息时校验用户存在性并填充默认已读状态；
+ * - 历史与未读查询依赖仓储层的组合查询；
+ * - 已读标记提供单条与批量两种模式；
+ * - 最近联系人查询基于接收者维度的去重结果。
+ * </p>
+ * 事务：
+ * - 类级别使用 {@link org.springframework.transaction.annotation.Transactional}，方法在同一事务中运行。
+ */
 @Service
 @Transactional
 public class MessageServiceImpl implements MessageService {

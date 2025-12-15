@@ -6,6 +6,18 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 import java.util.Date;
 
+/**
+ * 群组实体，对应表 {@code chat_groups}。
+ * <p>
+ * 主要字段：
+ * - 基本信息：群名、头像、描述；
+ * - 权限与规模：是否公开、最大成员数、成员数量；
+ * - 管理信息：创建者、邀请码；
+ * - 审计时间：创建与更新。
+ * </p>
+ * 生命周期：
+ * - {@link #onCreate()} 与 {@link #onUpdate()} 自动维护审计时间。
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

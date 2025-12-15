@@ -15,6 +15,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * WebSocket 入站认证拦截器。
+ * <p>
+ * 在 STOMP CONNECT 阶段读取 {@code Authorization} 头的 Bearer Token，
+ * 校验后将认证信息写入 {@link SecurityContextHolder} 与会话。
+ * </p>
+ * 注意：
+ * - 仅在连接阶段处理认证，不影响后续消息分发；
+ * - 与 HTTP JWT 过滤器逻辑保持一致。
+ */
 @Component
 public class WebSocketAuthInterceptor implements ChannelInterceptor {
 

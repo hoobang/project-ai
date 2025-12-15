@@ -6,6 +6,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+/**
+ * 自定义的用户详情实现，桥接领域用户与 Spring Security。
+ * <p>
+ * 该类封装了系统的 {@link com.wechat.entity.User}，并按需实现
+ * {@link org.springframework.security.core.userdetails.UserDetails} 接口以供安全框架使用。
+ * </p>
+ * 启用规则：
+ * - 当用户的 {@code active} 字段为 {@code true} 时视为启用。
+ */
 public class CustomUserDetails implements UserDetails {
 
     private User user;

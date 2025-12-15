@@ -15,6 +15,19 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Spring Security 安全配置。
+ * <p>
+ * 主要职责：
+ * - 配置无状态的会话策略，禁用 CSRF；
+ * - 放行 `/auth/**` 与 `/ws/**` 路径，其余请求需要认证；
+ * - 在用户名密码过滤器之前加入自定义的 JWT 认证过滤器；
+ * - 暴露 {@link AuthenticationManager} 与 {@link PasswordEncoder}。
+ * </p>
+ * 注意：
+ * - 本系统采用 Bearer Token 的方式进行请求认证；
+ * - 密码使用 BCrypt 进行加密存储。
+ */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)

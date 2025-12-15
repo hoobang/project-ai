@@ -11,6 +11,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 群成员仓储接口。
+ * <p>
+ * 支持按群与用户的存在性检查、成员列表查询与管理员列表查询；
+ * 提供计数接口用于统计群成员数量。
+ * </p>
+ */
 @Repository
 public interface GroupMemberRepository extends JpaRepository<GroupMember, Long> {
 

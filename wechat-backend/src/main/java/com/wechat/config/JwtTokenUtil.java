@@ -13,6 +13,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Base64;
 
+/**
+ * JWT 令牌工具类。
+ * <p>
+ * 负责生成、解析与校验 JWT：
+ * - 使用 HS512 算法与配置文件中的密钥 {@code jwt.secret}；
+ * - 令牌过期时间由配置 {@code jwt.expiration} 指定（毫秒）；
+ * - subject 为用户名，支持从令牌解析用户名并进行校验。
+ * </p>
+ * 线程安全说明：
+ * - 所有方法不持有状态，依赖的密钥与过期时间通过配置注入，适合单例使用。
+ */
 @Component
 public class JwtTokenUtil {
 

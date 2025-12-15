@@ -8,6 +8,16 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
+/**
+ * WebSocket/STOMP 配置。
+ * <p>
+ * 主要职责：
+ * - 启用简单消息代理（`/topic` 与 `/queue`）；
+ * - 设置应用目的地前缀 `/app`；
+ * - 注册端点 `/ws` 并开启 SockJS 支持；
+ * - 在入站通道添加认证拦截器。
+ * </p>
+ */
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {

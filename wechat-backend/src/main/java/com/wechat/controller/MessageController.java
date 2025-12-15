@@ -12,6 +12,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 私聊消息相关的 REST 控制器。
+ * <p>
+ * 提供接口：
+ * - GET `/messages/history`：查询与指定用户的历史消息；
+ * - POST `/messages/send`：发送消息并通过 WebSocket 推送；
+ * - GET `/messages/unread`：获取当前用户未读消息；
+ * - PUT `/messages/read/{messageId}`：将某条消息标记为已读；
+ * - PUT `/messages/read/all`：将指定会话的所有消息标记为已读。
+ * </p>
+ * 权限：
+ * - 所有接口均要求用户具备 `ROLE_USER`。
+ * 技术要点：
+ * - 结合 {@link org.springframework.messaging.simp.SimpMessagingTemplate} 将消息实时推送到队列；
+ * - 使用 {@link com.wechat.config.CustomUserDetails} 识别当前登录用户。
+ */
 @RestController
 @RequestMapping("/messages")
 public class MessageController {

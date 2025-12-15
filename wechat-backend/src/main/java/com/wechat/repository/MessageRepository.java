@@ -9,6 +9,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 私聊消息仓储接口。
+ * <p>
+ * 提供基于发送者、接收者与时间的查询方法：
+ * - 双向历史记录查询；
+ * - 未读消息计数与列表；
+ * - 最近联系人列表。
+ * </p>
+ */
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
 

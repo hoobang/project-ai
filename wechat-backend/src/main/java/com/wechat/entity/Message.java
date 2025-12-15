@@ -6,6 +6,18 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 import java.util.Date;
 
+/**
+ * 私聊消息实体，对应表 {@code messages}。
+ * <p>
+ * 主要字段：
+ * - 发送者与接收者（用户关联）；
+ * - 文本内容与类型（TEXT/IMAGE/VOICE/VIDEO/FILE）；
+ * - 附件信息：路径、文件名、大小；
+ * - 已读状态与审计时间。
+ * </p>
+ * 生命周期：
+ * - {@link #onCreate()} 与 {@link #onUpdate()} 自动维护创建与更新时间。
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -13,6 +13,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.NoSuchElementException;
 
+/**
+ * 用户服务实现。
+ * <p>
+ * 主要功能：
+ * - 注册时进行用户名/邮箱/手机号唯一性校验与密码加密；
+ * - 登录支持用户名/邮箱/手机号三种方式，成功后更新最后登录时间；
+ * - 用户资料维护与搜索、存在性校验；
+ * - 安全的密码修改流程（校验旧密码）。
+ * </p>
+ * 异常：
+ * - 参数冲突抛出 {@link IllegalArgumentException}；
+ * - 数据不存在抛出 {@link NoSuchElementException}。
+ */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {

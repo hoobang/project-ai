@@ -11,6 +11,17 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
+/**
+ * WebSocket/STOMP 消息控制器。
+ * <p>
+ * 职责：
+ * - 接收私聊与群聊消息，持久化后广播到对应目的地；
+ * - 提供好友请求通知的示例入口。
+ * </p>
+ * 技术要点：
+ * - 使用 {@link org.springframework.messaging.simp.SimpMessagingTemplate} 向客户端推送；
+ * - 目的地约定：私聊使用 `/queue/messages/{userId}`，群聊使用 `/topic/group/{groupId}`。
+ */
 @Controller
 public class WebSocketController {
 

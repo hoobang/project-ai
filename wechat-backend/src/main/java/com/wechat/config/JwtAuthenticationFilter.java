@@ -15,6 +15,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * JWT 请求认证过滤器。
+ * <p>
+ * 从请求头的 {@code Authorization} 读取 Bearer Token，解析用户名，
+ * 加载用户详情并构造认证对象写入 {@link SecurityContextHolder}。
+ * </p>
+ * 放置时机：
+ * - 在 {@link org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter} 之前。
+ * 异常处理：
+ * - 解析失败或校验不通过时忽略本次认证，继续过滤链。
+ */
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 

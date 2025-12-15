@@ -10,6 +10,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 好友关系仓储接口。
+ * <p>
+ * 提供双向好友关系的查询、计数与审批状态过滤；
+ * 支持基于用户对的唯一关系查找与列表统计。
+ * </p>
+ */
 @Repository
 public interface FriendshipRepository extends JpaRepository<Friendship, Long> {
 

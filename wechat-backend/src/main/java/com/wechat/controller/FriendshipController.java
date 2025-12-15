@@ -11,6 +11,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 好友关系相关的 REST 控制器。
+ * <p>
+ * 提供接口：
+ * - 获取好友列表、发送/接受/拒绝好友请求、删除好友；
+ * - 查询待处理请求列表。
+ * </p>
+ * 说明：
+ * - 当前登录用户通过 {@link com.wechat.config.CustomUserDetails} 获取；
+ * - 返回统一使用 {@link org.springframework.http.ResponseEntity}。
+ */
 @RestController
 @RequestMapping("/friends")
 public class FriendshipController {

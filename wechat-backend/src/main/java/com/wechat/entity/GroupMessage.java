@@ -6,6 +6,17 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.*;
 import java.util.Date;
 
+/**
+ * 群聊消息实体，对应表 {@code group_messages}。
+ * <p>
+ * 主要字段：
+ * - 群、发送者关联；
+ * - 消息内容与类型；
+ * - 附件信息与审计时间。
+ * </p>
+ * 生命周期：
+ * - {@link #onCreate()} 与 {@link #onUpdate()} 自动维护时间。
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

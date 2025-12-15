@@ -17,6 +17,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 认证与用户登录相关的 REST 控制器。
+ * <p>
+ * 提供接口：
+ * - POST `/auth/register`：注册用户；
+ * - POST `/auth/login`：登录并返回 JWT；
+ * - GET `/auth/me`：获取当前登录用户信息。
+ * </p>
+ * 实现要点：
+ * - 使用 {@link org.springframework.security.authentication.AuthenticationManager} 与自定义的
+ *   {@link org.springframework.security.core.userdetails.UserDetailsService} 完成认证；
+ * - JWT 的生成与校验由 {@link com.wechat.config.JwtTokenUtil} 处理；
+ * - 控制器保持无状态，认证信息通过请求头中的 Bearer Token 传递。
+ */
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

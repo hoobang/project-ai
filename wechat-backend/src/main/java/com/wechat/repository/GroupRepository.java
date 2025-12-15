@@ -9,6 +9,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 群组仓储接口。
+ * <p>
+ * 提供按群名的模糊查询、公开群搜索以及用户参与的群列表查询；
+ * 支持基于邀请码的唯一查找。
+ * </p>
+ */
 @Repository
 public interface GroupRepository extends JpaRepository<Group, Long> {
 
