@@ -83,6 +83,7 @@
           <el-button type="primary" icon="el-icon-user">查看资料</el-button>
           <el-button type="success" icon="el-icon-phone-outline">语音通话</el-button>
           <el-button type="warning" icon="el-icon-video-camera">视频通话</el-button>
+          {{ value }}
         </div>
       </div>
     </div>
@@ -96,7 +97,8 @@ import { useRouter } from 'vue-router'
 import axios from '../utils/axios'
 import { ElMessage } from 'element-plus'
 import { useWebSocket } from '../composables/useWebSocket'
-
+//备注说明
+const value = ref("")
 const router = useRouter()
 const searchText = ref('')
 const inputMessage = ref('')
